@@ -1,0 +1,21 @@
+version: 2.1
+
+orbs:
+  docker: circleci/docker@1.5.0
+
+workflows:
+  web:
+    jobs:
+      - docker
+
+jobs:
+  build-and-push:
+    executor: docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - docker/check
+      - docker/build:
+          image: jorjazo/gunther
+      - docker/push:
+          image: jorjazo/gunther
