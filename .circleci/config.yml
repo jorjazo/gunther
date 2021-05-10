@@ -6,7 +6,7 @@ orbs:
 workflows:
   web:
     jobs:
-      - docker
+      - build-and-push
 
 jobs:
   build-and-push:
